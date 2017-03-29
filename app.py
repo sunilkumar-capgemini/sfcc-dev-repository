@@ -39,9 +39,9 @@ def webhook():
 def suggestDeodrant(condition, person, city):
     humidWeatherList = ['tornado','tropical storm','hurricane','severe thunderstorms','thunderstorms','mixed rain and snow','mixed rain and sleet','mixed snow and sleet','freezing drizzle','drizzle','freezing rain','showers','showers','snow flurries','light snow showers','blowing snow','snow','hail','sleet','mixed rain and hail','thundershowers','snow showers','isolated','thundershowers'];
     hotWeatherList = ['dust','foggy','haze','smoky','blustery','windy','cold','cloudy','mostly cloudy (night)','mostly cloudy (day)','partly cloudy (night)','partlycloudy (day)','clear (night)','sunny','fair (night)','fair (day)','hot','isolated thunderstorms','scattered thunderstorms','scattered thunderstorms','scattered showers','heavy snow','scattered snow showers','heavy snow','partly cloudy'];
+     men = 'Men'    
     if(condition in humidWeatherList):
      print('humid')
-     men = 'Men'
      if(person.lower()==men.lower()):
       condition = 'Hmmm.. The weather in '+city+' looks '+condition+'. I suggest these <a href="/highstreetstorefront/highstreet/en/highstreet-Catalogue/Perfumes/Men-Perfumes/Moist/c/580">Anti-Perspirant Deodrants</a> for ' + person
      else:
