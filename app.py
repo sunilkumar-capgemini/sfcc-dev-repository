@@ -48,7 +48,7 @@ def suggestDeodrant(condition, person, city):
       condition = 'Hmmm.. The weather in '+city+' looks '+condition+'. I suggest these <a href="/highstreetstorefront/highstreet/en/highstreet-Catalogue/Perfumes/Women-Perfumes/Moist/c/395">Anti-Perspirant Deodrants</a> for ' + person
     else:
      print('dry')
-     if(person.lower() == person.lower()):
+     if(person.lower() == men.lower()):
       condition = 'Hmmm.. The weather in '+city+' looks '+condition+'. I suggest these <a href="/highstreetstorefront/highstreet/en/highstreet-Catalogue/Perfumes/Men-Perfumes/Dry/c/570">Perfumed Deodrants</a> for ' + person
      else:
       condition = 'Hmmm.. The weather in '+city+' looks '+condition+'. I suggest these <a href="/highstreetstorefront/highstreet/en/highstreet-Catalogue/Perfumes/Women-Perfumes/Dry/c/390">Perfumed Deodrants</a> for ' + person
