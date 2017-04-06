@@ -38,8 +38,8 @@ def webhook():
 	
 def suggestDeodrant(condition, person, city):
     print(person)
-    humidWeatherList = ['tornado','tropical storm','hurricane','severe thunderstorms','thunderstorms','mixed rain and snow','mixed rain and sleet','mixed snow and sleet','freezing drizzle','drizzle','freezing rain','showers','showers','snow flurries','light snow showers','blowing snow','snow','hail','sleet','mixed rain and hail','thundershowers','snow showers','isolated','thundershowers'];
-    hotWeatherList = ['dust','foggy','haze','smoky','blustery','windy','cold','cloudy','mostly cloudy (night)','mostly cloudy (day)','partly cloudy (night)','partlycloudy (day)','clear (night)','sunny','fair (night)','fair (day)','hot','isolated thunderstorms','scattered thunderstorms','scattered thunderstorms','scattered showers','heavy snow','scattered snow showers','heavy snow','partly cloudy'];
+    humidWeatherList = ['Cloudy','mostly cloudy (night)','mostly cloudy (day)','partly cloudy (night)','partlycloudy (day)','tornado','tropical storm','hurricane','severe thunderstorms','thunderstorms','mixed rain and snow','mixed rain and sleet','mixed snow and sleet','freezing drizzle','drizzle','freezing rain','Showers','snow flurries','light snow showers','blowing snow','snow','hail','sleet','mixed rain and hail','thundershowers','snow showers','isolated','thundershowers'];
+    hotWeatherList = ['dust','foggy','haze','smoky','blustery','windy','cold','clear (night)','sunny','fair (night)','fair (day)','hot','isolated thunderstorms','scattered thunderstorms','scattered thunderstorms','scattered showers','heavy snow','scattered snow showers','heavy snow','partly cloudy'];
     if(condition in humidWeatherList):
      print('humid')
      men = 'Men'
