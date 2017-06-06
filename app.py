@@ -121,7 +121,7 @@ def makeWebhookResult(data, req):
     return {
         "speech": returnedSpeech,
         "displayText": returnedSpeech,
-	"followupEvent": {"name":"user_location_ip", "data":{"travel_to":city, "returnedSpeech":returnedSpeech}},
+	"followupEvent": {"name":"user_location_ip", "data":{"travel_to":city,"travel_from":"$travel_from", "returnedSpeech":returnedSpeech}},
         # "data": data,
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
