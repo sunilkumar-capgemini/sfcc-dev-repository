@@ -56,6 +56,26 @@ def suggestDeodrant(condition, person, city):
       condition = 'Hmmm.. The weather in '+city+' looks '+condition+'. I suggest these <a target="_blank" href="/highstreetstorefront/highstreet/en/highstreet-Catalogue/Perfumes/Women-Perfumes/Dry/c/390">Perfumed Deodrants</a> for ' + person
     return condition
 
+def getCategoryLink(condition, person, city):
+    print(person)
+    humidWeatherList = ['Cloudy','mostly cloudy (night)','mostly cloudy (day)','partly cloudy (night)','partlycloudy (day)','tornado','tropical storm','hurricane','severe thunderstorms','thunderstorms','mixed rain and snow','mixed rain and sleet','mixed snow and sleet','freezing drizzle','drizzle','freezing rain','Showers','snow flurries','light snow showers','blowing snow','snow','hail','sleet','mixed rain and hail','thundershowers','snow showers','isolated','thundershowers'];
+    hotWeatherList = ['dust','foggy','haze','smoky','blustery','windy','cold','clear (night)','sunny','fair (night)','fair (day)','hot','isolated thunderstorms','scattered thunderstorms','scattered thunderstorms','scattered showers','heavy snow','scattered snow showers','heavy snow','partly cloudy'];
+    if(condition in humidWeatherList):
+     print('humid')
+     men = 'Men'
+     if(person.lower()==men.lower()):
+      condition = '<a target="_blank" href="/highstreetstorefront/highstreet/en/highstreet-Catalogue/Perfumes/Men-Perfumes/Moist/c/580">'
+     else:
+      condition = '<a target="_blank" href="/highstreetstorefront/highstreet/en/highstreet-Catalogue/Perfumes/Women-Perfumes/Moist/c/395">Anti-Perspirant Deodrants</a>'
+    else:
+     print('dry')
+     menv = 'Men'
+     if(person.lower()==menv.lower()):
+      condition = '<a target="_blank" href="/highstreetstorefront/highstreet/en/highstreet-Catalogue/Perfumes/Men-Perfumes/Dry/c/570">Perfumed Deodrants</a>'
+     else:
+      condition = '<a target="_blank" href="/highstreetstorefront/highstreet/en/highstreet-Catalogue/Perfumes/Women-Perfumes/Dry/c/390">Perfumed Deodrants</a>'
+    return condition
+
 def processRequest(req):
     if req.get("result").get("action") != "yahooWeatherForecast":
         return {}
@@ -115,6 +135,7 @@ def makeWebhookResult(data, req):
     city = parameters.get("geo-city")
     conditionText = condition.get('text')
     returnedSpeech = suggestDeodrant(condition.get('text'), person, city)
+    categoryLink = getCategoryLink(condition.get('text'), person, city)
     print(returnedSpeech)
     #print("Response:")
     #print(speech)
@@ -122,7 +143,7 @@ def makeWebhookResult(data, req):
     return {
         "speech": returnedSpeech,
         "displayText": returnedSpeech,
-	"followupEvent": {"name":"user_location_ip", "data":{"conditionText":conditionText,"travel_to":city,"travel_from":"$travel_from", "returnedSpeech":returnedSpeech}},
+	"followupEvent": {"name":"user_location_ip", "data":{"categoryLink":categoryLink,"conditionText":conditionText,"travel_to":city,"travel_from":"$travel_from", "returnedSpeech":returnedSpeech}},
         # "data": data.,
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
