@@ -64,7 +64,7 @@ def getCategoryLink(condition, person, city):
      print('humid')
      men = 'Men'
      if(person.lower()==men.lower()):
-      condition = '<a target="_blank" href="/highstreetstorefront/highstreet/en/highstreet-Catalogue/Perfumes/Men-Perfumes/Moist/c/580">'
+      condition = '<a target="_blank" href="/highstreetstorefront/highstreet/en/highstreet-Catalogue/Perfumes/Men-Perfumes/Moist/c/580">Anti-Perspirant Deodrants</a>'
      else:
       condition = '<a target="_blank" href="/highstreetstorefront/highstreet/en/highstreet-Catalogue/Perfumes/Women-Perfumes/Moist/c/395">Anti-Perspirant Deodrants</a>'
     else:
