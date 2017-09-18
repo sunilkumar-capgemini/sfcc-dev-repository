@@ -37,8 +37,20 @@ def webhook():
     return res
 
 def relayRequest(req):
-    if req.get("result").get("action") == "request_name_permission" or req.get("result").get("action") == "read_mind" or req.get("result").get("action") == "actions_intent_PERMISSION" or req.get("result").get("action") == "":
+    if req.get("result").get("action") == "request_name_permission" or req.get("result").get("action") == "read_mind" or req.get("result").get("action") == "actions_intent_PERMISSION" :
         baseurl = "https://us-central1-namepsychicdemo-6bd8d.cloudfunctions.net/namePsychic/"
+    elif req.get("result").get("action") == "getUserDetails" :
+        displayName = req.get("originalRequest").get("data").get("user").get("profile").get("displayName")
+        givenName = req.get("originalRequest").get("data").get("user").get("profile").get("givenName")
+        familyName = req.get("originalRequest").get("data").get("user").get("profile").get("familyName")
+        return {
+            "speech": "Allowed",
+            "displayText": "Allowed",
+	        #"followupEvent": {"name":"user_location_ip", "data":{"person":person,"categoryLink":categoryLink,"conditionText":conditionText,"travel_to":city,"travel_from":"$travel_from", "returnedSpeech":returnedSpeech}},
+            "data": {"displayName":displayName, "givenName":givenName , "familyName":familyName},
+            # "contextOut": [],
+            "source": "python-webhook"
+        }
     else:
         baseurl = "http://34.203.152.187/highstreetcommercewebservices/v2/highstreet/webhook/"
     
