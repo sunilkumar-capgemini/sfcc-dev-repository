@@ -30,10 +30,15 @@ def webhook():
     res = relayRequest(req)
     print(res)
 
-    #res = json.dumps(res, indent=4)
-    #print(res)
-    #r = make_response(res)
-    #r.headers['Content-Type'] = 'application/json'
+    if req.get("result").get("action") == "getUserDetails" :
+        res = json.dumps(res, indent=4)
+        #print(res)
+        r = make_response(res)
+        r.headers['Content-Type'] = 'application/json'
+	print("json formed in python")
+    else:
+	print("dummy")
+
     return res
 
 def relayRequest(req):
