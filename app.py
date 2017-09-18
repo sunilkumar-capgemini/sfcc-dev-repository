@@ -51,7 +51,7 @@ def relayRequest(req):
         return {
             "speech": "Allowed",
             "displayText": "Allowed",
-	        #"followupEvent": {"name":"user_location_ip", "data":{"person":person,"categoryLink":categoryLink,"conditionText":conditionText,"travel_to":city,"travel_from":"$travel_from", "returnedSpeech":returnedSpeech}},
+	    "followupEvent": {"name":"PlaceOrder-FollowupEvent", "data":{"displayName":displayName, "givenName":givenName , "familyName":familyName}},
             "data": {"displayName":displayName, "givenName":givenName , "familyName":familyName},
             # "contextOut": [],
             "source": "python-webhook"
