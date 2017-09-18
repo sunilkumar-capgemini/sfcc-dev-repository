@@ -37,7 +37,7 @@ def webhook():
     return res
 
 def relayRequest(req):
-    if req.get("result").get("action") == "request_name_permission":
+    if req.get("result").get("action") == "request_name_permission" or req.get("result").get("action") == "request_permission":
         baseurl = "https://us-central1-namepsychicdemo-6bd8d.cloudfunctions.net/namePsychic/"
     else:
         baseurl = "http://34.203.152.187/highstreetcommercewebservices/v2/highstreet/webhook/"
