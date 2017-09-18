@@ -25,7 +25,7 @@ app = Flask(__name__)
 def webhook():
     req = request.get_json(silent=True, force=True)
     
-    print("Request: Latest 1")
+    print("Request: Latest 001")
     print(json.dumps(req, indent=4))
     res = relayRequest(req)
     print(res)
@@ -37,7 +37,12 @@ def webhook():
     return res
 
 def relayRequest(req):
-    baseurl = "http://34.203.152.187/highstreetcommercewebservices/v2/highstreet/webhook/"
+    if req.get("result").get("action") == "request_name_permission":
+        baseurl = "https://us-central1-namepsychicdemo-6bd8d.cloudfunctions.net/namePsychic/"
+    else:
+        baseurl = "http://34.203.152.187/highstreetcommercewebservices/v2/highstreet/webhook/"
+    
+    
     reqObj = urllib.request.Request(baseurl)
     reqObj.add_header('Content-Type', 'application/json; charset=utf-8')
     jsondata = json.dumps(req)
