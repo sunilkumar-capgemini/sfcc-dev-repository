@@ -51,7 +51,7 @@ def relayRequest(req):
             channel = context.get("parameters").get("name")
             print(channel)
 
-    if req.get("result").get("action") == "getUserDetails" :
+    if req.get("result").get("action") == "getUserDetails" or (channel == "desktop" and req.get("result").get("action") == "request_name_permission"):
         displayName = req.get("originalRequest").get("data").get("user").get("profile").get("displayName")
         givenName = req.get("originalRequest").get("data").get("user").get("profile").get("givenName")
         familyName = req.get("originalRequest").get("data").get("user").get("profile").get("familyName")
