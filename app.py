@@ -30,7 +30,7 @@ def webhook():
     res = relayRequest(req)
     print(res)
 
-    if req.get("result").get("action") == "getUserDetails" :
+    if req.get("result").get("action") == "getUserDetails" or (channel == "desktop" and req.get("result").get("action") == "request_name_permission"):
         res = json.dumps(res, indent=4)
         #print(res)
         r = make_response(res)
