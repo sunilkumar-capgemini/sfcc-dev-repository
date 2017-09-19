@@ -30,12 +30,19 @@ def webhook():
     res = relayRequest(req)
     print(res)
 
-    if req.get("result").get("action") == "getUserDetails" or (channel == "desktop" and req.get("result").get("action") == "request_name_permission"):
+    if req.get("result").get("action") == "getUserDetails":
         res = json.dumps(res, indent=4)
         #print(res)
         r = make_response(res)
         r.headers['Content-Type'] = 'application/json'
         print("json formed in python")
+    elif (channel == "desktop" and req.get("result").get("action") == "request_name_permission"):
+        res = json.dumps(res, indent=4)
+        #print(res)
+        r = make_response(res)
+        r.headers['Content-Type'] = 'application/json'
+        print("json formed in python - desktop flow")
+        return r
     else:
         print("dummy")
 
