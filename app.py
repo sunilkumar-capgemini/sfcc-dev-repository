@@ -69,9 +69,6 @@ def relayRequest(req):
             "source": "python-webhook"
         }
     elif (channel == "desktop" and req.get("result").get("action") == "request_name_permission"):
-        displayName = req.get("originalRequest").get("data").get("user").get("profile").get("displayName")
-        givenName = req.get("originalRequest").get("data").get("user").get("profile").get("givenName")
-        familyName = req.get("originalRequest").get("data").get("user").get("profile").get("familyName")
         return {
             "speech": "Allowed",
             "displayText": "Allowed",
