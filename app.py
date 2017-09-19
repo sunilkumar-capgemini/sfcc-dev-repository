@@ -42,11 +42,14 @@ def webhook():
     return res
 
 def relayRequest(req):
+    channel = "device"
     contextList = req.get("result").get("contexts")
     for context in contextList:
         print(context.get("name"))	
         if context.get("name") == "channel" :
             print("matched...")
+            channel = context.get("parameters").get("name")
+            print(channel)
 
     if req.get("result").get("action") == "getUserDetails" :
         displayName = req.get("originalRequest").get("data").get("user").get("profile").get("displayName")
