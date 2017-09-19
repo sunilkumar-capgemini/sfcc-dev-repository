@@ -43,7 +43,7 @@ def webhook():
 
 def relayRequest(req):
     contextList = req.get("result").get("contexts")
-    for context in contextList
+    for context in contextList:
         print(context.get("name"))	
         if context.get("name") == "channel" :
             print("matched...")
