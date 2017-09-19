@@ -29,7 +29,15 @@ def webhook():
     print(json.dumps(req, indent=4))
     res = relayRequest(req)
     print(res)
-
+    channel = "device"
+    userIdHybris = ""
+    contextList = req.get("result").get("contexts")
+    for context in contextList:
+        if context.get("name") == "channel" :
+            channel = context.get("parameters").get("name")
+            userIdHybris = context.get("parameters").get("userIdHybris")
+            print(channel+" - "+userIdHybris)
+            print("==========================")
     if req.get("result").get("action") == "getUserDetails":
         res = json.dumps(res, indent=4)
         #print(res)
