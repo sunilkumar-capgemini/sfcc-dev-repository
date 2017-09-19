@@ -42,9 +42,13 @@ def webhook():
     return res
 
 def relayRequest(req):
-    if req.get("result").get("action") == "request_name_permission" or req.get("result").get("action") == "read_mind" or req.get("result").get("action") == "actions_intent_PERMISSION" :
-        baseurl = "https://us-central1-namepsychicdemo-6bd8d.cloudfunctions.net/namePsychic/"
-    elif req.get("result").get("action") == "getUserDetails" :
+    contextList = req.get("result").get("contexts")
+    for context in contextList
+        print(context.get("name"))	
+        if context.get("name") == "channel" :
+            print("matched...")
+
+    if req.get("result").get("action") == "getUserDetails" :
         displayName = req.get("originalRequest").get("data").get("user").get("profile").get("displayName")
         givenName = req.get("originalRequest").get("data").get("user").get("profile").get("givenName")
         familyName = req.get("originalRequest").get("data").get("user").get("profile").get("familyName")
@@ -56,6 +60,8 @@ def relayRequest(req):
             # "contextOut": [],
             "source": "python-webhook"
         }
+    elif req.get("result").get("action") == "request_name_permission" or req.get("result").get("action") == "read_mind" or req.get("result").get("action") == "actions_intent_PERMISSION" :
+        baseurl = "https://us-central1-namepsychicdemo-6bd8d.cloudfunctions.net/namePsychic/"
     else:
         baseurl = "http://34.203.152.187/highstreetcommercewebservices/v2/highstreet/webhook/"
     
