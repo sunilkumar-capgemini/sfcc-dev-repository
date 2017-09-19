@@ -43,6 +43,7 @@ def webhook():
 
 def relayRequest(req):
     channel = "device"
+    userIdHybris = ""
     contextList = req.get("result").get("contexts")
     for context in contextList:
         print(context.get("name"))	
@@ -50,8 +51,12 @@ def relayRequest(req):
             print("matched...")
             channel = context.get("parameters").get("name")
             print(channel)
+            userIdHybris = context.get("parameters").get("userIdHybris")
+            print(userIdHybris)
+            print("---------------------------------------")
 
-    if req.get("result").get("action") == "getUserDetails" or (channel == "desktop" and req.get("result").get("action") == "request_name_permission"):
+
+    if req.get("result").get("action") == "getUserDetails" :
         displayName = req.get("originalRequest").get("data").get("user").get("profile").get("displayName")
         givenName = req.get("originalRequest").get("data").get("user").get("profile").get("givenName")
         familyName = req.get("originalRequest").get("data").get("user").get("profile").get("familyName")
@@ -60,6 +65,18 @@ def relayRequest(req):
             "displayText": "Allowed",
 	    "followupEvent": {"name":"PlaceOrder-FollowupEvent", "data":{"displayName":displayName, "givenName":givenName , "familyName":familyName}},
             "data": {"displayName":displayName, "givenName":givenName , "familyName":familyName},
+            # "contextOut": [],
+            "source": "python-webhook"
+        }
+    elif (channel == "desktop" and req.get("result").get("action") == "request_name_permission"):
+        displayName = req.get("originalRequest").get("data").get("user").get("profile").get("displayName")
+        givenName = req.get("originalRequest").get("data").get("user").get("profile").get("givenName")
+        familyName = req.get("originalRequest").get("data").get("user").get("profile").get("familyName")
+        return {
+            "speech": "Allowed",
+            "displayText": "Allowed",
+	    "followupEvent": {"name":"PlaceOrder-FollowupEvent", "data":{"displayName":userIdHybris, "givenName":userIdHybris , "familyName":userIdHybris}},
+            "data": {"displayName":userIdHybris, "givenName":userIdHybris , "familyName":userIdHybris},
             # "contextOut": [],
             "source": "python-webhook"
         }
