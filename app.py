@@ -25,7 +25,7 @@ app = Flask(__name__)
 def webhook():
     req = request.get_json(silent=True, force=True)
     
-    print("Request: Latest 001")
+    print("Request: Latest 002")
     print(json.dumps(req, indent=4))
     res = relayRequest(req)
     print(res)
@@ -33,6 +33,7 @@ def webhook():
     userIdHybris = ""
     contextList = req.get("result").get("contexts")
     for context in contextList:
+        print("Context: ")
         if context.get("name") == "channel" :
             channel = context.get("parameters").get("name")
             userIdHybris = context.get("parameters").get("userIdHybris")
