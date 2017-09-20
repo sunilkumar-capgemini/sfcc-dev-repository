@@ -78,7 +78,7 @@ def relayRequest(req):
         return {
             "speech": "Allowed",
             "displayText": "Allowed",
-	    "followupEvent": {"name":"PlaceOrder-FollowupEvent", "data":{"displayName":displayName, "givenName":givenName , "familyName":familyName}},
+	    "followupEvent": {"name":"ProductSearch-FollowupEvent", "data":{"displayName":displayName, "givenName":givenName , "familyName":familyName}},
             "data": {"displayName":displayName, "givenName":givenName , "familyName":familyName},
             # "contextOut": [],
             "source": "python-webhook"
@@ -87,7 +87,7 @@ def relayRequest(req):
         return {
             "speech": "Allowed",
             "displayText": "Allowed",
-	    "followupEvent": {"name":"PlaceOrder-FollowupEvent", "data":{"displayName":userIdHybris, "givenName":userIdHybris , "familyName":userIdHybris}},
+	    "followupEvent": {"name":"ProductSearch-FollowupEvent", "data":{"displayName":userIdHybris, "givenName":userIdHybris , "familyName":userIdHybris}},
             "data": {"displayName":userIdHybris, "givenName":userIdHybris , "familyName":userIdHybris},
             # "contextOut": [],
             "source": "python-webhook"
