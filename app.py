@@ -58,11 +58,12 @@ def webhook():
     return res
 
 def relayRequest(req):
+    print("############### ACTION - "+req.get("result").get("action"))
     channel = "device"
     userIdHybris = ""
     contextList = req.get("result").get("contexts")
     for context in contextList:
-        print(context.get("name"))	
+        print("Context :"+context.get("name"))	
         if context.get("name") == "channel" :
             print("matched...")
             channel = context.get("parameters").get("name")
