@@ -125,7 +125,7 @@ def makeWebhookResult(data, req):
 	"followupEvent": {"name":"user_location_ip", "data":{"conditionText":conditionText,"travel_to":city,"travel_from":"$travel_from", "returnedSpeech":returnedSpeech}},
         # "data": data,
         # "contextOut": [],
-        "source": "apiai-weather-webhook-sample"
+        "source": "dcx_foundry_highstreet"
     }
 
 
