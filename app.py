@@ -120,7 +120,7 @@ def makeWebhookResult(data, req):
 
     return {
         "speech": returnedSpeech,
-        "displayText": returnedSpeech,
+        "displayText": "yes!!!! really webhook is executed",
         # "data": data,
         # "contextOut": [],
         "source": "dcx_foundry_highstreet"
