@@ -95,7 +95,7 @@ def makeWebhookResult(data):
         "displayText": speech,
         # "data": data,
         # "contextOut": [],
-        "source": "dcx_foundry_highstreet"
+        "source": "abcd_webhook"
     }
 
 
