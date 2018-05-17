@@ -83,7 +83,7 @@ def relayRequest(req):
 	    "followupEvent": {"name":"ProductSearch-FollowupEvent", "data":{"displayName":displayName, "givenName":givenName , "familyName":familyName}},
             "data": {"displayName":displayName, "givenName":givenName , "familyName":familyName},
             # "contextOut": [],
-            "source": "dcx_foundry_highstreet"
+            "source": "python-webhook"
         }
     elif (channel == "desktop" and req.get("result").get("action") == "request_name_permission"):
         return {
@@ -92,7 +92,7 @@ def relayRequest(req):
 	    "followupEvent": {"name":"ProductSearch-FollowupEvent", "data":{"displayName":userIdHybris, "givenName":userIdHybris , "familyName":userIdHybris}},
             "data": {"displayName":userIdHybris, "givenName":userIdHybris , "familyName":userIdHybris},
             # "contextOut": [],
-            "source": "dcx_foundry_highstreet"
+            "source": "python-webhook"
         }
     elif req.get("result").get("action") == "request_name_permission" or req.get("result").get("action") == "read_mind" or req.get("result").get("action") == "actions_intent_PERMISSION" :
         baseurl = "https://us-central1-foundry-highstreet-demo-7b87a.cloudfunctions.net/getNameFunction"
