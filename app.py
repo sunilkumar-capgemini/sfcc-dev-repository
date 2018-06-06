@@ -95,9 +95,8 @@ def relayRequest(req):
             "source": "python-webhook"
         }
     elif req.get("result").get("action") == "request_name_permission" or req.get("result").get("action") == "read_mind" or req.get("result").get("action") == "actions_intent_PERMISSION" :
-	print("before calling the getNameFunction")
 	baseurl = "https://us-central1-foundry-highstreet-demo-7b87a.cloudfunctions.net/getNameFunction"
-	print("after calling the getNameFunction")
+	
     else:
         baseurl = "http://highstreet-dcxfoundry.ace.nl.capgemini.com/highstreetcommercewebservices/v2/highstreet/webhook/"
     
