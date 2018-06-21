@@ -38,12 +38,12 @@ def webhook():
 
 def relayRequest(req):
     string desc='Vitamin A';
-    reqObj = urllib.request.Request(baseurl)
-    reqObj.add_header('Content-Type', 'application/json; charset=utf-8')
-    jsondata = json.dumps(req)
-    jsondataasbytes = jsondata.encode('utf-8')   # needs to be bytes
-    reqObj.add_header('Content-Length', len(jsondataasbytes))
-    result = urlopen(reqObj,jsondataasbytes).read()
+    #reqObj = urllib.request.Request(baseurl)
+    #reqObj.add_header('Content-Type', 'application/json; charset=utf-8')
+    #jsondata = json.dumps(req)
+    #jsondataasbytes = jsondata.encode('utf-8')   # needs to be bytes
+    #reqObj.add_header('Content-Length', len(jsondataasbytes))
+    #result = urlopen(reqObj,jsondataasbytes).read()
     #data = json.loads(result)
     #res = makeWebhookResult(data,req)
     return desc
