@@ -46,7 +46,7 @@ def relayRequest(req):
     result = urlopen(reqObj,jsondataasbytes).read()
     #data = json.loads(result)
     #res = makeWebhookResult(data,req)
-    return result
+    return desc
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
