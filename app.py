@@ -37,7 +37,7 @@ def webhook():
     return res
 
 def relayRequest(req):
-    baseurl = "http://10.77.102.7/BotDemo/webhook/"
+    string desc='Vitamin A';
     reqObj = urllib.request.Request(baseurl)
     reqObj.add_header('Content-Type', 'application/json; charset=utf-8')
     jsondata = json.dumps(req)
