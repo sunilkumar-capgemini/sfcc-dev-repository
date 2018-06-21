@@ -37,6 +37,7 @@ def webhook():
     return res
 
 def relayRequest(req):
+    if req.get("result").get("action") == "input.welcome":
     string desc='Vitamin A';
     #reqObj = urllib.request.Request(baseurl)
     #reqObj.add_header('Content-Type', 'application/json; charset=utf-8')
