@@ -1,7 +1,7 @@
 {
   "name": "API.AI webhook demonstration",
   "description": "API.AI webhook demonstration",
-  "repository": "https://github.com/api-ai/dcx_foundry_highstreet",
+  "repository": "https://github.com/api-ai/sfcc-dev-repository",
   "logo": "http://xvir.github.io/img/apiai.png",
   "keywords": ["api.ai", "natural language"]
 }
